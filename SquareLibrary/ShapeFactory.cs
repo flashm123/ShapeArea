@@ -18,7 +18,7 @@ namespace SquareLibrary
     {
         private double[] sides;
         private double radius;
-        
+
         /// <summary>
         /// Set the sides of the shape
         /// </summary>
@@ -42,15 +42,24 @@ namespace SquareLibrary
 
             return this;
         }
-        
+
+        /// <summary>
+        /// Find area of the shape
+        /// </summary>
+        /// <returns></returns>
+        public double GetArea()
+        {
+            return Build().GetArea();
+        }
+
         /// <summary>
         /// Create shape by the provided state properties
         /// </summary>
         /// <returns></returns>
-        public IShape Build()
+        private IShape Build()
         {
             IShape shape = null;
-            
+
             if (!radius.Equals(0))
             {
                 shape = new Circle(radius);
