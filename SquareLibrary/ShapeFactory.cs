@@ -19,6 +19,11 @@ namespace SquareLibrary
         private double[] sides;
         private double radius;
         
+        /// <summary>
+        /// Set the sides of the shape
+        /// </summary>
+        /// <param name="sides">The sides of the shape</param>
+        /// <returns>ShapeFactoryBuilder instance</returns>
         public ShapeFactoryBuilder Sides(params double[] sides)
         {
             this.sides = sides;
@@ -26,6 +31,11 @@ namespace SquareLibrary
             return this;
         }
 
+        /// <summary>
+        /// Set the radius of the shape
+        /// </summary>
+        /// <param name="radius">The radius of the shape</param>
+        /// <returns>ShapeFactoryBuilder instance</returns>
         public ShapeFactoryBuilder Radius(double radius)
         {
             this.radius = radius;
@@ -33,7 +43,11 @@ namespace SquareLibrary
             return this;
         }
         
-        public IShape Create()
+        /// <summary>
+        /// Create shape by the provided state properties
+        /// </summary>
+        /// <returns></returns>
+        public IShape Build()
         {
             IShape shape = null;
             
@@ -49,7 +63,7 @@ namespace SquareLibrary
                     shape = new Rectangle(sides[0], sides[1]);
                 }
 
-                if (sides.Length.Equals(2))
+                if (sides.Length.Equals(3))
                 {
                     shape = new Triangle(sides[0], sides[1], sides[2]);
                 }
