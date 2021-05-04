@@ -14,7 +14,7 @@ namespace SquareLibrary.Models
         private double b;
         private double c;
 
-        public Triangle(double a, double b, double c)
+        internal Triangle(double a, double b, double c)
         {
         	if (((a + b > c) && (c + b > a) && (a + c > b)) == false)
         	{
@@ -30,7 +30,7 @@ namespace SquareLibrary.Models
         /// Check whether the triangle is right using Pythagorean theorem 
         /// </summary>
         /// <returns>true - right; false - not right</returns>
-        public bool IsRight()
+        internal bool IsRight()
         {
             return (a * a == b * b + c * c) || (b * b == a * a + c * c) || (c * c == a * a + b * b)
                 ? true
