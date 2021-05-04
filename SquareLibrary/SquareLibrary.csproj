@@ -44,7 +44,7 @@
     <Compile Include="Models\Circle.cs" />
     <Compile Include="Models\Rectangle.cs" />
     <Compile Include="Models\Triangle.cs" />
-    <Compile Include="ShapeFactory.cs" />
+    <Compile Include="ShapeFactoryBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
