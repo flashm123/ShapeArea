@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
+using SquareLibrary.Models;
 
 namespace SquareLibrary
 {
@@ -9,12 +10,15 @@ namespace SquareLibrary
 		[Test]
 		public void CheckAreaOfRectangle()
 		{
+			// Declare an init data
 			var a = 5;
 			var b = 7;
 			var expectedArea = 35;
 			
+			// Action
 			var actualArea = new ShapeFactoryBuilder().Sides(a, b).GetArea();
 			
+			// Assert
 			Assert.AreEqual(expectedArea, actualArea);
 		}
 		
@@ -40,6 +44,77 @@ namespace SquareLibrary
 			var actualArea = new ShapeFactoryBuilder().Sides(a, b, c).GetArea();
 			
 			Assert.AreEqual(expectedArea, Math.Round(actualArea, 2));
+		}
+		
+		[Test]
+		public void CheckAreaOfNoneExistentTriangle()
+		{
+			var a = 5;
+			var b = 5;
+			var c = 11;
+			
+			var message = string.Empty;
+			
+			try
+			{
+				var actualArea = new ShapeFactoryBuilder().Sides(a, b, c).GetArea();
+			}
+			catch(Exception e)
+			{
+				message = e.Message;
+			}
+			
+			Assert.AreEqual("The triangle doesn't exist.", message);
+		}
+		
+		[Test]
+		public void CheckIfTriangleIsRight()
+		{
+			var a = 3;
+			var b = 4;
+			var c = 5;
+			
+			var expected = true;
+			var actual = false;
+			
+			var shape = new ShapeFactoryBuilder().Sides(a, b, c).Build();
+			
+			if (shape is Triangle)
+			{
+				actual = ((Triangle)shape).IsRight();
+			}
+			
+			Assert.AreEqual(expected, actual);
+		}
+		
+		/// <summary>
+		/// Incorrect usage of the library - the shape can't have the sides and radius at the same time
+		/// </summary>
+		[Test]
+		public void InCorrectUsageTest()
+		{
+			// Declare an init data
+			var a = 3;
+			var b = 4;
+			var c = 5;
+			var radius = 5;
+			
+			var expectedException = new NotSupportedException();
+			
+			// Action
+			Exception actualException = null;
+			
+			try
+			{
+				var shape = new ShapeFactoryBuilder().Sides(a, b, c).Radius(radius).Build();
+			}
+			catch(Exception e)
+			{
+				actualException = e;
+			}
+			
+			// Assert
+			Assert.IsInstanceOfType(expectedException.GetType(), actualException);
 		}
 		
 	}
