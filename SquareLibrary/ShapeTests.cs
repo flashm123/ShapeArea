@@ -25,11 +25,14 @@ namespace SquareLibrary
 		[Test]
 		public void CheckAreaOfCircle()
 		{
-			var radius = 5;
+            // Declare an init data
+            var radius = 5;
 			var expectedArea = 5 * 5 * Math.PI;
-			
+
+            // Action
 			var actualArea = new ShapeFactoryBuilder().Radius(radius).GetArea();
-			
+
+            // Assert
 			Assert.AreEqual(expectedArea, actualArea);
 		}
 		
@@ -52,8 +55,10 @@ namespace SquareLibrary
 			var a = 5;
 			var b = 5;
 			var c = 11;
-			
-			var message = string.Empty;
+
+            var expectedMessage = "The triangle doesn't exist.";
+
+			var actualMessage = string.Empty;
 			
 			try
 			{
@@ -61,10 +66,10 @@ namespace SquareLibrary
 			}
 			catch(Exception e)
 			{
-				message = e.Message;
+                actualMessage = e.Message;
 			}
-			
-			Assert.AreEqual("The triangle doesn't exist.", message);
+
+            Assert.AreEqual(expectedMessage, actualMessage);
 		}
 		
 		[Test]
