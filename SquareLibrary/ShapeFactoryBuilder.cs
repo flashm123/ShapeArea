@@ -53,23 +53,21 @@ namespace SquareLibrary
         /// <returns></returns>
         private IShape Build()
         {
-            IShape shape = null;
-
             if (!radius.Equals(0))
             {
-                shape = new Circle(radius);
+                return new Circle(radius);
             }
 
             if (!sides.Equals(null))
             {
                 if (sides.Length.Equals(2))
                 {
-                    shape = new Rectangle(sides[0], sides[1]);
+                    return new Rectangle(sides[0], sides[1]);
                 }
 
                 if (sides.Length.Equals(3))
                 {
-                    shape = new Triangle(sides[0], sides[1], sides[2]);
+                    return new Triangle(sides[0], sides[1], sides[2]);
                 }
             }
 
