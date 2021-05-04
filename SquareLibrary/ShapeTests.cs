@@ -91,7 +91,7 @@ namespace SquareLibrary
 		/// Incorrect usage of the library - the shape can't have the sides and radius at the same time
 		/// </summary>
 		[Test]
-		public void InCorrectUsageTest()
+		public void IncorrectLibraryUsageTest()
 		{
 			// Declare an init data
 			var a = 3;
@@ -114,7 +114,7 @@ namespace SquareLibrary
 			}
 			
 			// Assert
-			Assert.IsInstanceOfType(expectedException.GetType(), actualException);
+			Assert.AreEqual(expectedException.GetType(), actualException.GetType());
 		}
 		
 	}
