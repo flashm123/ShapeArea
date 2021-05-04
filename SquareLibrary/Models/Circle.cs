@@ -19,7 +19,7 @@ namespace SquareLibrary.Models
         
         public double GetArea()
         {
-            throw new NotImplementedException();
+            return Math.PI * Math.Pow(radius, 2);
         }
     }
 }

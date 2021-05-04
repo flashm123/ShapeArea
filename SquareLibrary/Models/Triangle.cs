@@ -23,7 +23,9 @@ namespace SquareLibrary.Models
 
         public double GetArea()
         {
-            throw new NotImplementedException();
+            var p = (a + b + c) / 2;
+
+            return Math.Sqrt(p * (p - a) * (p - b) * (p - c));
         }
 
     }
