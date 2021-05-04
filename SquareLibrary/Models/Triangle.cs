@@ -21,6 +21,17 @@ namespace SquareLibrary.Models
             this.c = c;
         }
 
+        /// <summary>
+        /// Check whether the triangle is right using Pythagorean theorem 
+        /// </summary>
+        /// <returns>true - right; false - not right</returns>
+        public bool IsRight()
+        {
+            return (a * a == b * b + c * c) || (b * b == a * a + c * c) || (c * c == a * a + b * b)
+                ? true
+                : false;
+        }
+
         public double GetArea()
         {
             var p = (a + b + c) / 2;
