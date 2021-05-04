@@ -16,7 +16,12 @@ namespace SquareLibrary.Models
 
         public Triangle(double a, double b, double c)
         {
-            this.a = a;
+        	if (((a + b > c) && (c + b > a) && (a + c > b)) == false)
+        	{
+        		throw new Exception("The triangle doesn't exist.");
+        	}
+        	
+        	this.a = a;
             this.b = b;
             this.c = c;
         }
