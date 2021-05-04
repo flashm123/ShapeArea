@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SquareLibrary.Models;
 
 namespace SquareLibrary
 {
@@ -13,13 +14,48 @@ namespace SquareLibrary
     ///    Вычисление площади фигуры без знания типа фигуры
     ///     Проверку на то, является ли треугольник прямоугольным
     /// </summary>
-    public static class ShapeFactory
+    public class ShapeFactoryBuilder
     {
-        public static IShape Create()
+        private double[] sides;
+        private double radius;
+        
+        public ShapeFactoryBuilder Sides(params double[] sides)
+        {
+            this.sides = sides;
+
+            return this;
+        }
+
+        public ShapeFactoryBuilder Radius(double radius)
+        {
+            this.radius = radius;
+
+            return this;
+        }
+        
+        public IShape Create()
         {
             IShape shape = null;
+            
+            if (!radius.Equals(0))
+            {
+                shape = new Circle();
+            }
 
-            return shape;
+            if (!sides.Equals(null))
+            {
+                if (sides.Length.Equals(2))
+                {
+                    shape = new Rectangle();
+                }
+
+                if (sides.Length.Equals(2))
+                {
+                    shape = new Triangle();
+                }
+            }
+
+            throw new NotSupportedException();
         }
     }
 }
