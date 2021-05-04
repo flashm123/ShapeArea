@@ -39,19 +39,19 @@ namespace SquareLibrary
             
             if (!radius.Equals(0))
             {
-                shape = new Circle();
+                shape = new Circle(radius);
             }
 
             if (!sides.Equals(null))
             {
                 if (sides.Length.Equals(2))
                 {
-                    shape = new Rectangle();
+                    shape = new Rectangle(sides[0], sides[1]);
                 }
 
                 if (sides.Length.Equals(2))
                 {
-                    shape = new Triangle();
+                    shape = new Triangle(sides[0], sides[1], sides[2]);
                 }
             }
 
