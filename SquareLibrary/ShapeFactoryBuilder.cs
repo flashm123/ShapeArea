@@ -11,8 +11,8 @@ namespace SquareLibrary
     /// </summary>
     public class ShapeFactoryBuilder
     {
-        private double[] sides;
-        private double radius;
+        private double[] sides = null;
+        private double? radius = null;
 
         /// <summary>
         /// Set the sides of the shape
@@ -51,24 +51,30 @@ namespace SquareLibrary
         /// Create shape by the provided state properties
         /// </summary>
         /// <returns></returns>
-        private IShape Build()
+        internal IShape Build()
         {
-            if (!radius.Equals(0))
+        	if (radius != null)
             {
-                return new Circle(radius);
+            	if (sides == null)
+            	{
+                	return new Circle(radius.Value);
+            	}
             }
 
-            if (!sides.Equals(null))
+            if (sides != null)
             {
-                if (sides.Length.Equals(2))
-                {
-                    return new Rectangle(sides[0], sides[1]);
-                }
-
-                if (sides.Length.Equals(3))
-                {
-                    return new Triangle(sides[0], sides[1], sides[2]);
-                }
+            	if (radius == null)
+            	{
+	                if (sides.Length.Equals(2))
+	                {
+	                    return new Rectangle(sides[0], sides[1]);
+	                }
+	
+	                if (sides.Length.Equals(3))
+	                {
+	                    return new Triangle(sides[0], sides[1], sides[2]);
+	                }
+            	}
             }
 
             throw new NotSupportedException();
