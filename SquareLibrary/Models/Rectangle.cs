@@ -5,6 +5,9 @@ using System.Text;
 
 namespace SquareLibrary.Models
 {
+    /// <summary>
+    /// The rectangle shape
+    /// </summary>
     class Rectangle : IShape
     {
         private double a;
@@ -16,14 +19,6 @@ namespace SquareLibrary.Models
             this.b = b;
         }
         
-        public string Calling
-        {
-            get 
-            { 
-                throw new NotImplementedException(); 
-            }
-        }
-
         public double GetArea()
         {
             throw new NotImplementedException();

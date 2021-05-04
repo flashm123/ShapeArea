@@ -5,6 +5,9 @@ using System.Text;
 
 namespace SquareLibrary.Models
 {
+    /// <summary>
+    /// The circle shape
+    /// </summary>
     class Circle : IShape
     {
         private double radius;
@@ -14,14 +17,6 @@ namespace SquareLibrary.Models
             this.radius = radius;
         }
         
-        public string Calling
-        {
-            get 
-            { 
-                throw new NotImplementedException(); 
-            }
-        }
-
         public double GetArea()
         {
             throw new NotImplementedException();

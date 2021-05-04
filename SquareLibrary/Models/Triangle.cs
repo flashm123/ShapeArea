@@ -5,6 +5,9 @@ using System.Text;
 
 namespace SquareLibrary.Models
 {
+    /// <summary>
+    /// The triangle shape
+    /// </summary>
     class Triangle : IShape
     {
         private double a;
@@ -16,14 +19,6 @@ namespace SquareLibrary.Models
             this.a = a;
             this.b = b;
             this.c = c;
-        }
-
-        public string Calling
-        {
-            get 
-            { 
-                throw new NotImplementedException(); 
-            }
         }
 
         public double GetArea()
